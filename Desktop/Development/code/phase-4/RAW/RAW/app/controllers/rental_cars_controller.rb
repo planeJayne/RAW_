@@ -11,7 +11,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
         render json: car, status: :ok
     end
 
-    def show
+    def create
         car = RentalCar.create!(create_params)
         render json: car, status: :ok
     end

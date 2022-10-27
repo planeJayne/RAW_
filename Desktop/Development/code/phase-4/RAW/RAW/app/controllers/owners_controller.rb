@@ -7,7 +7,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
             end
         
             def show
-                owner = Owner.create!(owner_params)
+                owner = owner_params
                 render json: owner, status: :ok
             end
         
