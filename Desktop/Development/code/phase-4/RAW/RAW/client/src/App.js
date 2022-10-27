@@ -5,6 +5,7 @@ import './/App.css'
 import React, { useEffect, useState } from "react"
 import NavBar from './component/NavBar';
 import Cars from './component/Cars'
+import CarsContainer from './component/CarsContainer';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
@@ -50,9 +51,8 @@ function App() {
       <NavBar currentUser={currentUser} handleSearchChange={handleSearchChange} handleOptionChange={handleOptionChange} searchKey={searchKey} searchValue={searchValue}/>
         <Routes>
           <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
-          {/* <Route exact path='/owner' element={<Owner />} /> */}
-          <Route exact path="/account" element={<Account currentUser={currentUser}/>}/>
-          <Route exact path="/cars" element={filtered.map((filter)=> <Cars rental={filter} key={filter.id}/>)}/>
+          <Route exact path="/accounts" element={<Account currentUser={currentUser}/>}/>
+          <Route exact path="/cars" element={<CarsContainer handleSearchChange={handleSearchChange} handleOptionChange={handleOptionChange} searchKey={searchKey} searchValue={searchValue} filtered={filtered}/>}/>
         </Routes> 
       </BrowserRouter>
     </div>

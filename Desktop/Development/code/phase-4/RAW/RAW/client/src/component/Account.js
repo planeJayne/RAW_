@@ -12,7 +12,6 @@ function Account({currentUser}) {
         <div className="phone">Phone number: {currentUser.phone}</div>
         <div className="email-verified">{currentUser.email_verified}</div>
         <div className="subscribed">{currentUser.subscribed}</div>
-        {/* <div className="address">Address: {currentUser.address}</div> */}
     </div>)
 }
 export default Account
