@@ -1,30 +1,44 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import './App.css';
-import { useState, useEffect } from "react";
-
+import Account from './component/Account';
+import Home from './component/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './/App.css'
+import React, { useEffect, useState } from "react"
+import NavBar from './component/NavBar';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [currentUser, setCurrentUser] = useState([])
+  const [searchValue, setSearchValue ] = useState("")
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+    fetch("https://myfakeapi.com/api/cars/")
+    .then(res => res.json())
+    .then(data => {
+  console.log(data);
+    })
+
+    fetch("https://myfakeapi.com/api/users/")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setCurrentUser(data.Users[0])
+    })
+  }, [])
+
+  function handleSearchChange(event) {
+    setSearchValue(event.target.value)
+  }
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+      <NavBar currentUser={currentUser} handleSearchChange={handleSearchChange} searchValue={searchValue} />
+        <Routes>
+          <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
+          {/* <Route exact path='/owner' element={<Owner />} /> */}
+          <Route exact path="/account" element={<Account currentUser={currentUser}/>}/>
+        </Routes> 
+      </BrowserRouter>
+    </div>
   );
 }
 

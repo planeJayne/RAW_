@@ -5,6 +5,8 @@ class CreateRenters < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :email
       t.integer :phone
+      t.boolean :insurance
+      t.boolean :driver_license
       t.integer :age
       t.integer :birthdate
       t.string :avatar

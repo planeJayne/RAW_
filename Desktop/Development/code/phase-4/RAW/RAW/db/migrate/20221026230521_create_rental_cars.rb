@@ -6,6 +6,7 @@ class CreateRentalCars < ActiveRecord::Migration[7.0]
       t.string :make
       t.string :model
       t.integer :year
+      t.string :vehicle_type
       t.string :color
       t.integer :rating
       t.string :picture
