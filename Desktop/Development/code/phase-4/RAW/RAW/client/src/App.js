@@ -52,7 +52,7 @@ function App() {
           <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
           {/* <Route exact path='/owner' element={<Owner />} /> */}
           <Route exact path="/account" element={<Account currentUser={currentUser}/>}/>
-          <Route exact path="/rentalcars" element={filtered.map(filter=> <Cars rental={filter} key={rental.id}/>)}/>
+          <Route exact path="/cars" element={filtered.map((filter)=> <Cars rental={filter} key={filter.id}/>)}/>
         </Routes> 
       </BrowserRouter>
     </div>

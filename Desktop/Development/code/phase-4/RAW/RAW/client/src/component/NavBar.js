@@ -9,23 +9,23 @@ function NavBar({ currentUser, handleSearchChange, handleOptionChange, searchKey
   
   return (
     <div className="navbar">
-      <div className="logo"> R-A-W </div>
+      <div className="logo"> R-A-W </div> 
       <div className="nav-links">
         <NavLink className="link" to="/home">
           Home
         </NavLink>{" "}
-        |
+         |
         <NavLink className="link" to="/cars">
           Cars
         </NavLink>{" "}
-        |
+         |
         <NavLink className="link" to="/owners">
           Owners
         </NavLink>
       </div>
       <div className="search">
-        <select value={searchKey} onChange = {handleOptionChange}>
-          <option value="">Search for...</option>
+        <select className="select" value={searchKey} onChange = {handleOptionChange}>
+          <option value="">Select one</option>
           <option value="make">Make</option>
           <option value="model">Model</option>
           <option value="vehicle_type">Vehicle Type</option>
@@ -33,12 +33,14 @@ function NavBar({ currentUser, handleSearchChange, handleOptionChange, searchKey
           <option value="transmission">Transmission</option>
           <option value="engine_type">Engine Type</option>
         </select>
-        <input
+        <div className="box">
+        <input className="input"
           type="text"
-          placeholder="Search for..."
+          placeholder = "...................................................."
           value={searchValue}
           onChange={handleSearchChange}
-        />
+          />
+          </div>
       </div>
       <div className="account-link">
         <NavLink className="link" to="/account">
