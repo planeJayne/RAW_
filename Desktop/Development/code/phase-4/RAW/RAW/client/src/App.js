@@ -7,13 +7,15 @@ import NavBar from './component/NavBar';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
-  const [searchValue, setSearchValue ] = useState("")
+  const [rentalCars, setRentalCars]= useState([])
+  const [searchKey, setSearchKey] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    fetch("https://myfakeapi.com/api/cars/")
+    fetch("/rental_cars")
     .then(res => res.json())
     .then(data => {
-  console.log(data);
+      setRentalCars(data);
     })
 
     fetch("https://myfakeapi.com/api/users/")
@@ -25,13 +27,26 @@ function App() {
   }, [])
 
   function handleSearchChange(event) {
-    setSearchValue(event.target.value)
+    setSearchValue(event.target.value);
   }
+  function handleOptionChange(event){
+    setSearchKey(event.target.value)
+  }
+
+  const filtered = rentalCars.filter((car)=>{
+    const search = searchValue.toLowerCase()
+    if(searchKey.length !== 0 && searchValue.length !== 0){
+      console.log(car[searchKey]);
+      return car[searchKey].toLowerCase().includes(search)
+    }
+    return car
+  })
+  console.log(filtered);
 
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar currentUser={currentUser} handleSearchChange={handleSearchChange} searchValue={searchValue} />
+      <NavBar currentUser={currentUser} handleSearchChange={handleSearchChange} handleOptionChange={handleOptionChange} searchKey={searchKey} searchValue={searchValue}/>
         <Routes>
           <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
           {/* <Route exact path='/owner' element={<Owner />} /> */}
