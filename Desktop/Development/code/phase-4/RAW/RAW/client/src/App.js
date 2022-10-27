@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './/App.css'
 import React, { useEffect, useState } from "react"
 import NavBar from './component/NavBar';
+import Cars from './component/Cars'
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
@@ -51,6 +52,7 @@ function App() {
           <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
           {/* <Route exact path='/owner' element={<Owner />} /> */}
           <Route exact path="/account" element={<Account currentUser={currentUser}/>}/>
+          <Route exact path="/rentalcars" element={filtered.map(filter=> <Cars rental={filter} key={rental.id}/>)}/>
         </Routes> 
       </BrowserRouter>
     </div>
