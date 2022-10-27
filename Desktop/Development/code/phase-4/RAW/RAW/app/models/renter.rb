@@ -4,7 +4,7 @@ class Renter < ApplicationRecord
 
     validates :name, presence: :true
     validates :email_attributes, email: true
-    validates :age
+    validates :age, :numericality => {greater_than_or_equal_to: 25}
     validates :insurance, presence: :true
     validates :driver_license, presence: :true
 end
