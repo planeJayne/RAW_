@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
-function NavBar({
-  currentUser
-}) {
+function NavBar({ currentUser }) {
+
   return (
     <div className="navbar">
-      <button className="logo"> R-A-W </button>
+      <button className="logo" onClick={()=> window.location.replace('/')}> R-A-W </button>
       <div className="nav-links">
-        <NavLink className="link" to="/home">
+        <NavLink className="link" to="/">
           Home
         </NavLink>{" "}
         <NavLink className="link" to="/cars">

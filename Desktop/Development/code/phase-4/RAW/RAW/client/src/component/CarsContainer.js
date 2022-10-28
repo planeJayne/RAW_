@@ -9,7 +9,7 @@ function CarsContainer({handleSearchChange, handleOptionChange, searchKey, searc
           value={searchKey}
           onChange={handleOptionChange}
         >
-          <option value="">Select one</option>
+          <option value=""> Select one</option>
           <option value="make">Make</option>
           <option value="model">Model</option>
           <option value="vehicle_type">Vehicle Type</option>

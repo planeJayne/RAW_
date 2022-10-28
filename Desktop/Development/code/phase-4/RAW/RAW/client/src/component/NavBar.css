@@ -48,6 +48,7 @@
     color: gold;
     outline: none;
     transition: .5s;
+    cursor: pointer;
 }
 .logout-btn {
     margin-right: 6%;
@@ -61,6 +62,7 @@
     color: gold;
     outline: none;
     transition: .5s;
+    cursor: pointer;
 }
 
 body{
@@ -135,4 +137,8 @@ input#search:focus {
     margin: auto;
     font-size: 26px;
     color: silver;
+}
+
+.logo:hover {
+    cursor: pointer;
 }
