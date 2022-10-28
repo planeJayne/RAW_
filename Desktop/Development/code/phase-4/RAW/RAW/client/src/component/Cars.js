@@ -1,5 +1,5 @@
 import React from "react";
-// import './Cars.scss'
+import './Cars.scss'
 
 function Cars({ rental }) {
   return (
@@ -21,7 +21,7 @@ function Cars({ rental }) {
           <h4>{rental.mileage}</h4>
           <p>{rental.description}</p>
         </div>
-        <button>Leave Review</button>
+        <button className="review-btn">Leave Review</button>
       </div>
     </container>
   );
