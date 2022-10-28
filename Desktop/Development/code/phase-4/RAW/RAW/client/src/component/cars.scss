@@ -31,6 +31,7 @@ body {
     minmax(12rem, 16rem));
     gap:2rem;
     justify-content: center;
+    color: silver;
 }
 
 .scss-card{
@@ -89,4 +90,8 @@ body {
     color: gold;
     outline: none;
     transition: .5s;
+}
+
+.container {
+    color: gold;
 }
