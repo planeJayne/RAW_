@@ -3,6 +3,12 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar({ currentUser }) {
+  const [login, setLogin] = useState(false)
+
+  function clickHandler() {
+    setLogin(!login)
+    console.log(setLogin)
+  }
 
   return (
     <div className="navbar">
@@ -17,13 +23,16 @@ function NavBar({ currentUser }) {
         <NavLink className="link" to="/accounts">
           Accounts
         </NavLink>
+        <NavLink className="link" to="/form">
+          AddCar
+        </NavLink>
       </div>
       
       <div className="account-link">
       </div>
       <br></br>
       <div className="btn">
-        {currentUser ? <button className="logout-btn">Logout</button> : <button className="login-btn">Login</button>}
+        {login ? <button onClick={clickHandler} className="logout-btn">Logout</button> : <button onClick={clickHandler} className="login-btn">Login</button>}
       </div>
     </div>
   );

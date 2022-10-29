@@ -10,13 +10,7 @@ function Home () {
         <Container>
             <Container id="about">
                 <p>Rent a Wreck . . </p>
-                
             </Container>
-            {/* <div className="wrapper">
-                <Cardz img={cars} title={<Link to="/cars">Cars</Link>} description='See our selections!' />
-                <Cardz img={owners} title={<Link to="/owners">Owners</Link>} description='Rent your car!'/>
-                <Cardz img={account} title={<Link to="/account">Account</Link>} description='Already a member?'/>
-            </div> */}
         </Container>
     );
 }

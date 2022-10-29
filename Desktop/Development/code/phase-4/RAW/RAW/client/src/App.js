@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react"
 import NavBar from './component/NavBar';
 import Cars from './component/Cars'
 import CarsContainer from './component/CarsContainer';
+import CarForm from './component/CarForm';
 
 function App() {
   const [currentUser, setCurrentUser] = useState([])
@@ -16,8 +17,8 @@ function App() {
   useEffect(() => {
     fetch("/rental_cars")
     .then(res => res.json())
-    .then(data => {
-      setRentalCars(data);
+    .then(cars => {
+      setRentalCars(cars);
     })
 
     fetch("https://myfakeapi.com/api/users/")
@@ -45,6 +46,10 @@ function App() {
   })
   console.log(filtered);
 
+  const addNewCar = (newCar) => {
+    setRentalCars([...rentalCars, newCar])
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -52,11 +57,11 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
           <Route exact path="/accounts" element={<Account currentUser={currentUser}/>}/>
-          <Route exact path="/cars" element={<CarsContainer handleSearchChange={handleSearchChange} handleOptionChange={handleOptionChange} searchKey={searchKey} searchValue={searchValue} filtered={filtered}/>}/>
+          <Route exact path="/cars" element={<CarsContainer handleSearchChange={handleSearchChange} handleOptionChange={handleOptionChange} searchKey={searchKey} searchValue={searchValue} filtered={filtered} rentalCars={rentalCars} setRentalCars={setRentalCars}/>}/>
+          <Route exact path="/form" element={<CarForm exact path="/" addNewCar={addNewCar}/> }/>
         </Routes> 
       </BrowserRouter>
     </div>
   );
 }
-
 export default App;

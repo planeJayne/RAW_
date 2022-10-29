@@ -12,7 +12,7 @@
 }
 
 .link{
-    margin-left: 80%;
+    margin-left: 40%;
     color: silver;
     justify-content: center;
     align-items: center;
@@ -49,6 +49,7 @@
     outline: none;
     transition: .5s;
     cursor: pointer;
+    font-weight: bold;
 }
 .logout-btn {
     margin-right: 6%;
@@ -63,6 +64,7 @@
     outline: none;
     transition: .5s;
     cursor: pointer;
+    font-weight: bold;
 }
 
 body{
@@ -75,15 +77,22 @@ body{
     align-items: center;
     flex-direction: column;
     align-content: center;
+    /* background-image: url("https://images.hertz.com/misc/1219-delivery-step-3-icon.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    justify-content: center; */
 }
 .box{
     position: relative;
 }
 
-.input {
+.search-input {
     padding: 10px;
-    width: 200px;
-    height: 60px;
+    width: 110px;
+    height: 45px;
     background: none;
     border: 4px solid gold;
     border-radius: 50px;
@@ -96,16 +105,17 @@ body{
 
 .select {
     padding: 10px;
-    width: 200px;
-    height: 60px;
+    width: 110px;
+    height: 45px;
     background: none;
     border: 4px solid gold;
     border-radius: 50px;
     box-sizing: border-box;
-    font-size: 26px;
+    font-size: .75em;
     color: gold;
     outline: none;
     transition: .5s;
+    font-weight: bold;
 }
 
 input#search:focus {
@@ -114,7 +124,7 @@ input#search:focus {
 }
 
 .box:hover input{
-    width: 350px;
+    width: 200px;
     background: #3b3640;
     border-radius: 10px;
 }

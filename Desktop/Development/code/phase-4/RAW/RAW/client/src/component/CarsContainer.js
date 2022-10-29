@@ -1,7 +1,7 @@
 import React from "react"
 import Cars from './Cars'
 
-function CarsContainer({handleSearchChange, handleOptionChange, searchKey, searchValue, filtered}) {
+function CarsContainer({handleSearchChange, handleOptionChange, searchKey, searchValue, filtered, rentalCars, setRentalCars}) {
     return (
     <div className="search">
         <select
@@ -19,7 +19,7 @@ function CarsContainer({handleSearchChange, handleOptionChange, searchKey, searc
         </select>
         <div className="box">
           <input
-            className="input"
+            className="search-input"
             type="text"
             placeholder="...................................................."
             value={searchValue}
@@ -27,7 +27,7 @@ function CarsContainer({handleSearchChange, handleOptionChange, searchKey, searc
           />
         </div>
         <div>
-        {filtered.map((filter)=> <Cars rental={filter} key={filter.id}/>)}
+        {filtered.map((filter)=> <Cars rental={filter} key={filter.id} rentalCars={rentalCars} setRentalCars={setRentalCars}/>)}
         </div>
       </div>
     )
